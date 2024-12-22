@@ -1,0 +1,70 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
+{
+	"name": "Ubuntu",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "mcr.microsoft.com/devcontainers/base:jammy",
+
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	"features": {
+		"ghcr.io/devcontainers/features/python:1": {
+			"version": "3.13"
+		},
+		"ghcr.io/va-h/devcontainers-features/uv:1": {
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers/features/aws-cli:1": {
+			"version": "latest"
+		},
+	},
+
+	// Mount local AWS CLI settings and credentials as a volume accessible within the container.
+	"mounts": [
+		{ "source": "/home/${localEnv:USER}/.aws", "target": "/home/vscode/.aws", "type": "bind" }
+	],
+
+	// Set env vars in the container.
+	"containerEnv": {
+		"AWS_PROFILE": "",
+		"AWS_DEFAULT_PROFILE": "",
+		"AWS_DEFAULT_REGION": "ap-southeast-2"
+	},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "uname -a",
+
+	// Configure tool-specific properties.
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			// Add the IDs of extensions you want installed when the container is created.
+			// Alternatively, just use Setting Sync to ensure you are always running your
+			// preferred VS Code setup ( https://code.visualstudio.com/docs/editor/settings-sync ).
+			"extensions": [
+				// langauge and runtime
+				"ms-python.python",
+				"ms-azuretools.vscode-docker",
+				// data engineering and data science
+				// "ms-toolsai.jupyter",
+				// "ms-toolsai.datawrangler",
+				// "mechatroner.rainbow-csv",
+				// AWS
+				"amazonwebservices.aws-toolkit-vscode",
+				"amazonwebservices.amazon-q-vscode",
+				"devadvice.serverlessconsole",
+				// markup support
+				"davidanson.vscode-markdownlint",
+				// "marp-team.marp-vscode",
+				// IDE utilities
+				"waderyan.gitblame",
+				"gruntfuggly.todo-tree"
+			]
+		}	
+	},
+
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
+}
