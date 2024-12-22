@@ -5,8 +5,9 @@ build:
     pre-build:
       # - wget -c https://s3.amazonaws.com/amzn-s3-demo-bucket/test-lib.tar.gz -O - | tar -xz
     build:        
-      # - pip install pipenv
-      # - pipenv install
+      - pip install pipenv
+      - pipenv install
+      # - pipx install uv
     post-build:
       # - python manage.py test
   env:
@@ -16,7 +17,9 @@ build:
     #   value: "example"
 run:
   # runtime-version: 3.7.7
-  # command: pipenv run gunicorn django_apprunner.wsgi --log-file -
+  # command: 
+    # - pipenv run gunicorn django_apprunner.wsgi --log-file -
+    - reflex run
   network: 
     port: 3000
     env: MY_APP_PORT  
