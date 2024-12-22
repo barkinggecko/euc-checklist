@@ -3,30 +3,23 @@ runtime: python3
 build:
   commands:
     pre-build:
-      # - wget -c https://s3.amazonaws.com/amzn-s3-demo-bucket/test-lib.tar.gz -O - | tar -xz
     build:        
       - pip install pipenv
       - pipenv install
-      # - pipx install uv
     post-build:
-      # - python manage.py test
   env:
-    # - name: DJANGO_SETTINGS_MODULE
-    #   value: "django_apprunner.settings"
-    # - name: MY_VAR_EXAMPLE
-    #   value: "example"
+    - name: APP_NAME
+      value: "euc-checklist"
 run:
-  # runtime-version: 3.7.7
-  # command: 
-    # - pipenv run gunicorn django_apprunner.wsgi --log-file -
+  command: 
     - reflex run
   network: 
     port: 3000
     env: MY_APP_PORT  
   env:
-    # - name: MY_VAR_EXAMPLE
-    #   value: "example"
-  secrets:
+    - name: APP_NAME
+      value: "euc-checklist"
+  # secrets:
     # - name: my-secret
     #   value-from: "arn:aws:secretsmanager:us-east-1:123456789012:secret:testingstackAppRunnerConstr-kJFXde2ULKbT-S7t8xR:username::"
     # - name: my-parameter
