@@ -9,7 +9,7 @@ build:
     - name: APP_NAME
       value: "euc-checklist"
 run:
-  command: reflex run
+  command: pipenv run reflex run
   network: 
     port: 3000
     env: MY_APP_PORT  
