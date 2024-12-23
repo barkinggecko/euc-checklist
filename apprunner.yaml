@@ -10,6 +10,7 @@ build:
     - name: PIPENV_VENV_IN_PROJECT
       value: "True"
 run:
+  runtime-version: 3.11
   pre-run: 
     - pip install pipenv
   command: pipenv run reflex run
