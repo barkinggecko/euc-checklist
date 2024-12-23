@@ -12,3 +12,7 @@ Prototype forms for collecting EUC device information and determing EUC device c
 ## Run Project
 
 * `reflex run`
+
+
+
+https://realpython.com/pipenv-guide/
