@@ -4,6 +4,7 @@ build:
   commands:
     pre-build:        
       - pip install pipenv
+    build:
       - pipenv install --ignore-pipfile
   env:
     - name: PIPENV_VENV_IN_PROJECT
