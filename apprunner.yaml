@@ -4,12 +4,12 @@ build:
   commands:
     pre-build:        
       - pip install pipenv
-      - pipenv install
+      - pipenv install --ignore-pipfile
   env:
-    - name: APP_NAME
-      value: "euc-checklist"
+    - name: PIPENV_VENV_IN_PROJECT
+      value: "True"
 run:
-  command: pipenv run reflex run
+  command: reflex run
   network: 
     port: 3000
     env: MY_APP_PORT  
