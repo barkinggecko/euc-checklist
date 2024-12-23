@@ -10,7 +10,9 @@ build:
     - name: PIPENV_VENV_IN_PROJECT
       value: "True"
 run:
-  command: reflex run
+  pre-run: 
+    - pip install pipenv
+  command: pipenv run reflex run
   network: 
     port: 3000
     env: MY_APP_PORT  
