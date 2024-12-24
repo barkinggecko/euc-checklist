@@ -2,7 +2,7 @@ version: 1.0
 runtime: python311 
 build:
   commands:
-    build:
+    pre-build:
       - pip install -r requirements.txt
 run:
   command: reflex run
