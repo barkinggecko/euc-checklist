@@ -2,21 +2,10 @@ version: 1.0
 runtime: python3 
 build:
   commands:
-    pre-build:        
-      - pip install pipenv
     build:
-      - pipenv install --ignore-pipfile
-  env:
-    - name: PIPENV_VENV_IN_PROJECT
-      value: "True"
+      - pip install -r requirements.txt
 run:
-  runtime-version: 3.11.11
-  pre-run: 
-    - pip install pipenv
-  command: pipenv run reflex run
+  command: reflex run
   network: 
     port: 3000
     env: MY_APP_PORT  
-  env:
-    - name: APP_NAME
-      value: "euc-checklist"
